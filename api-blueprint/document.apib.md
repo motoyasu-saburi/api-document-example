@@ -7,7 +7,7 @@ HOST: http://example.com
 
 # Group UserController
 
-## ユーザ [/user{?id,query,isprivate}]
+## ユーザ [/user{?id,query,private}]
 
 ### ユーザ情報の取得 [GET]
 
