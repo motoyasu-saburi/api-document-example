@@ -1,0 +1,64 @@
+#%RAML 1.0
+title: Example API Document
+baseUri: 'https://example.com/'
+mediaType: application/json
+
+/user
+  get:
+    queryParameters:
+      id:
+        description: ユーザID
+        type: integer
+        required: true
+        example: 123
+      query:
+        description: フリーワード検索
+        type: string
+        required: false
+        example: hoge
+      private:
+        description: 公開設定
+        type: boolean
+        required: true
+        example: true
+    responses:
+      200:
+        body:
+          application/json:
+            type: object
+            properties:
+              name:
+                type: string
+              age:
+                type: integer
+              accountName:
+                type: string
+              private:
+                type: boolean
+      401:
+        body:
+          application/json:
+            type: !include hoge/authentecation_error.json
+      500:
+        body:
+          application/json:
+            schema: |
+                |
+                                {
+                                  "$schema": "http://json-schema.org/schema#",
+                                  "type": "object",
+                                  "properties": {
+                                    "errors": {
+                                      "type": "array",
+                                      "items": [
+                                        {
+                                          "type":"string"
+                                        }
+                                      ]
+                                    }
+                                  }
+                                }
+            example: |
+              {
+                "errors": ["Internal Server Error!"]
+              }
