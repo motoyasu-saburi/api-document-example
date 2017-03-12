@@ -1,0 +1,47 @@
+FORMAT: 1A
+HOST: http://example.com
+
+# Exampleプロジェクト
+
+このファイルはAPI Blueprintを用いたAPIドキュメントになります。
+
+# Group UserController
+
+## ユーザ [/user{?id,query,isprivate}]
+
+### ユーザ情報の取得 [GET]
+
+指定した条件でユーザの取得を行う
+
++ Parameters
+    + id (required, number) - ユーザID
+    + query (optional, string) - フリーワード検索
+    + private (optional, boolean) - 公開設定
+
++ Response 200 (application/json)
+    + Attributes (ResponseUserModel)
+
++ Response 401 (application/json)
+Jsonを記載することもできる。
+    + Body
+        {
+          "error": "authenticate error"
+        }
+
+# Data Structure
+
+## ResponseUserModel
+
+これだと以下のような JSONを示している。
+Aglioの場合モデル定義内の説明文は表示されない。
+{
+  "name" : "名前",
+  "age" : 25
+  "accountName" : "アカウント名"
+  "private" : true  
+}
+
++ name (required, string) - 氏名
++ age (optional, number) - 年齢
++ accountName (required, string) - アカウント名
++ private (required, boolean) - 公開設定

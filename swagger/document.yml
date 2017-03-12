@@ -1,0 +1,45 @@
+swagger: "2.0"
+info:
+  version: "1.0"
+  title: Example API
+host: http://example.com
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /user:
+    get:
+      parameters:
+        - name: id
+          type: integer
+          required: true
+        - name: query
+          type: string
+          required: false
+        - name: private
+          type: boolean
+          required: false
+      responses:
+        200:
+          description: アカウントの取得
+          schema:
+            $ref: '#/definitions/ResponseUserModel'
+        401:
+          description: Authenticate Error
+
+definitions:
+  ResponseUserModel:
+    required:
+      - name
+      - accountName
+      - private
+    properties:
+      name:
+        type: string
+      age:
+        type: integer
+      accountName:
+        type: string
+      private:
+        type: boolean
