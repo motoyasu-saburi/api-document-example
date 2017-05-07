@@ -37,7 +37,6 @@ hooks.beforeEach(function (transaction) {
     stash['session'] = util.getSession("SESSION_NAME");
     transaction.request['headers']['Cookie'] = stash["session"];
   };
-  transaction = initialProcessingForAgentApi(transaction);
 });
 
 //API ドキュメントに書かれているデータとは別のデータを流し込んでテストを行う
