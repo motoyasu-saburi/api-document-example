@@ -1,5 +1,5 @@
 FORMAT: 1A
-HOST: http://localhost:3000
+HOST: http://localhost:3001
 
 # Exampleプロジェクト
 
