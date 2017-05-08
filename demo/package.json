@@ -9,6 +9,7 @@
   "dependencies": {
     "aglio": "2.2.1",
     "api-mock": "0.3.2",
+    "drakov": "1.0.4",
     "dredd": "2.2.5",
     "mysql": "2.12.0",
     "sync-request" : "3.0.1"
@@ -16,6 +17,7 @@
   "scripts": {
     "aglio": "open http://localhost:3000 && aglio --theme-full-width -i document.md -s",
     "dredd": "dredd",
+    "drakov": "drakov -f document.md -p 3000",
     "mock": "api-mock ./document.md --port 3000"
   },
   "author": "",
