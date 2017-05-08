@@ -13,7 +13,7 @@ module.exports = {
     return false;
   },
 
-  //企業ユーザの認証が必要な箇所のセッション用クッキーを取得する
+  //ユーザの認証が必要な箇所のセッション用クッキーを取得する
   getSession: function(cookieName) {
     var res = request('POST', 'http://localhost:3000/account/login', {
       'headers': {"Content-type": "application/json"},
